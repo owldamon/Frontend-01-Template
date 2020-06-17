@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style title="hello">
+        #a{
+            color: red;
+        }
+    </style>
+   <link rel="stylesheet" title="x" href="data:text/css,p%7Bcolor:blue%7D">
+</head>
+<body>
+    <div id="oo">
+        <span>1</span>
+        <a>2</a>
+        <p>3</p>
+        <div>4</div>
+    </div>
+    <div id="a">123<span style="background-color: pink;">4567</span>012345678</div>
+</body>
+<script>
+    let element = document.getElementById("oo");
+    // function reverseChildren(element){
+    //     let len = element.childNodes.length;
+    //     while(len-- > 0){
+    //         element.appendChild(element.childNodes);
+    //     }
+    // }
+    function reverseChildren(element){
+        let range = new Range();
+        range.selectNodeContents(element);
+        let fragment = range.extractContents();
+        let len = fragment.childNodes.length;
+        while(len-- > 0){
+            fragment.appendChild(fragment.childNodes[len])
+        }
+        element.appendChild(fragment);
+    }
+    reverseChildren(element)
+
+    let range2 = new Range();
+    range2.setStart(document.getElementById("a").childNodes[0], 3)
+    range2.setEnd(document.getElementById("a").childNodes[2], 3)
+    range2.extractContents();
+</script>
+</html>

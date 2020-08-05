@@ -1,0 +1,19 @@
+
+  .carousel{
+    width: 500px;
+    height: 300px;
+    white-space: nowrap;
+    zoom: 1;
+    outline: 1px solid green;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .carousel>img{
+    width: 500px;
+    height: 300px;
+    display: inline-block;
+  }
+
+  .a{
+    width: 12px;
+  }
